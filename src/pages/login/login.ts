@@ -1,7 +1,8 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
-import {  HttpClientModule } from '@angular/common/http';
+//import {  HttpClientModule } from '@angular/common/http';
 import{Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -19,7 +20,7 @@ import 'rxjs/add/operator/map';
 })
 export class LoginPage {
 logindata: any= {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http ,public alertCrtl:AlertController ) {
   this.logindata.username="";
   this.logindata.password="";
   }
@@ -31,7 +32,7 @@ logindata: any= {};
     if(this.logindata.username !="" && this.logindata.password!=""){
 
     console.log("user:",this.logindata.username);
-    console.log("user:",this.logindata.password);
+    console.log("pass:",this.logindata.password);
 
       let url : string = "http://localhost/login/login.php";
       let datapost = JSON.stringify({
@@ -42,16 +43,33 @@ logindata: any= {};
       this.http.post(url,datapost)
       .map(res=>res.json())
       .subscribe(data =>{
-
-        console.log(data);
-
-      });
-
-    }else{
-      console.log("กรุณาป้อนรหัส")
-    }
-
+        if(data!=null){
+          this.navCtrl.setRoot(HomePage);
+        }else{
+          console.log("เข้าสู่ระบบผิดพลาด")
+          this.alertPopup("แจ้งเตือน!!","ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
+        }
+    });
+  }else{
+    console.log("Enter Password");
   }
+}
+
+alertPopup(title:string,Msg:string){
+  let alert = this.alertCrtl.create({
+      title : title,
+      subTitle : Msg,
+      buttons : ['OK']  
+  }); 
+  
+  alert.present();
+}
+
+
+
+
+
+
   goToSignup(params){
     if (!params) params = {};
     this.navCtrl.push(SignupPage);

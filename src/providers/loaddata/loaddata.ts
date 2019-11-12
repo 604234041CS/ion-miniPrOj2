@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 //import { query } from '@angular/core/src/render3/instructions';
 
 /*
@@ -45,22 +45,22 @@ loadrooms(){
   let url = 'http://localhost/todoslim3/public/roomlist';
   return this.http.get(url);
 }
-loadprice_1(){
-  let url ='http://localhost/todoslim3/public/room/price20';
-  return this.http.get(url);
-}
+// loadprice_1(){
+//   let url ='http://10.68.8.73/todoslim3/public/room/price20';
+//   return this.http.get(url);
+// }
 //2500
-loadprice_2(){
-  let url ='http://localhost/todoslim3/public/room/price25';
-  return this.http.get(url);
-}
+// loadprice_2(){
+//   let url ='http://10.68.8.73/todoslim3/public/room/price25';
+//   return this.http.get(url);
+// }
 //3000
-loadprice_3(){
-  let url ='http://localhost/todoslim3/public/room/price30';
-  return this.http.get(url);
-}
+// loadprice_3(){
+//   let url ='http://10.68.8.73/todoslim3/public/room/price30';
+//   return this.http.get(url);
+// }
 showroom(name_ren){
-let url = 'http://localhost/todoslim3/public/room/'+name_ren;
+let url = 'http://localhost/todoslim3/public/room'+name_ren;
 return this.http.get(url);
 
 }
