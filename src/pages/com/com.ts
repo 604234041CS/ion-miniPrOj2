@@ -21,32 +21,32 @@ export class ComPage {
   showroom2:any=[];
  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api:LoaddataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apix:LoaddataProvider) {
     this.result.room1 = "";
     this.result.room2 = "";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ComPage');
-    this.api.loadrooms().subscribe(data=>{
+    this.apix.loadrooms().subscribe(data=>{
       this.value = data;
-     });
+    });
     
    }
-   getRoomToRoom(){
+   getroomview(){
     if(this.result.room1!=""){
-      this.api.showroom(this.result.room1).subscribe(data=>{
+      this.apix.showroomx(this.result.room1).subscribe(data=>{
         this.showroom1 = data;
         console.log(this.showroom1);
       });
 
     }if(this.result.room2 !=""){
-      this.api.showroom(this.result.room2).subscribe(val=>{
+      this.apix.showroomx(this.result.room2).subscribe(val=>{
         this.showroom2 = val;
         console.log(this.showroom2);
       });
   }
-  }
+}
 
    
   }//

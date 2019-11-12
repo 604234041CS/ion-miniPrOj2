@@ -38,20 +38,20 @@ export class SignupPage {
     this.navCtrl.push(LoginPage);
   }
   signIn(){
-    if(this.regisResult.name !="" && this.regisResult.surname !="" &&this.regisResult.password!="" &&this.regisResult.em!="" && this.regisResult.username!=""){
-      console.log("user",this.regisResult.name);
+    if(this.regisResult.name !="" && this.regisResult.surname !="" &&this.regisResult.pass!="" &&this.regisResult.em!="" && this.regisResult.use!=""){
+      console.log("name",this.regisResult.name);
      console.log("surname",this.regisResult.surname);
-     console.log("pass",this.regisResult.em);
-     console.log("username",this.regisResult.username); 
-     console.log("email",this.regisResult.password);
+     console.log("em",this.regisResult.em);
+     console.log("use",this.regisResult.use); 
+     console.log("pass",this.regisResult.pass);
  
      let url= 'http://localhost/login/singup.php';
         let datapost = JSON.stringify({
          name:this.regisResult.name,
          sname:this.regisResult.surname,
          email:this.regisResult.em,
-         username:this.regisResult.username,
-         password:this.regisResult.password
+         use:this.regisResult.use,
+         pass:this.regisResult.pass
        });
        let alert = this.alertCtrl.create({
         message: 'ยืนยันการสมัคร',

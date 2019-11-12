@@ -59,8 +59,8 @@ loadrooms(){
 //   let url ='http://10.68.8.73/todoslim3/public/room/price30';
 //   return this.http.get(url);
 // }
-showroom(name_ren){
-let url = 'http://localhost/todoslim3/public/room'+name_ren;
+showroomx(name_ren){
+let url = 'http://localhost/todoslim3/public/roomx'+name_ren;
 return this.http.get(url);
 
 }
